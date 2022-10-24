@@ -49,8 +49,14 @@ button {
 
 .info {
   display: flex;
-  gap: 5px;
+  justify-content: space-around;
   text-align: center;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .load-more{

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export default async function fetchGalleryPhotos(searchValue, currentPage = 1, perPage = 40) {
   const BASE_URL = 'https://pixabay.com/api/';

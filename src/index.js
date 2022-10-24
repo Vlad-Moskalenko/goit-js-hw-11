@@ -14,7 +14,7 @@ const loadMoreBtn = document.querySelector('.load-more');
 let searchValue;
 let lightbox;
 
-let currentPage = 1;
+let currentPage;
 let perPage = 40;
 
 let maxPage;
@@ -26,6 +26,7 @@ loadMoreBtn.addEventListener('click', onLoadMoreClick);
 async function onSearchFormSubmit(e){
   e.preventDefault()
   searchValue = e.target.searchQuery.value;
+  currentPage = 1;
   loadMoreBtn.classList.add('visually-hidden');
 
   const galleryPhotos = await fetchGalleryPhotos(searchValue);
@@ -33,7 +34,6 @@ async function onSearchFormSubmit(e){
   if (galleryPhotos.total === 0) submitFailure()
   else {
     submitSuccess(galleryPhotos)
-
     totalHits = galleryPhotos.totalHits;
     maxPage = Math.ceil(totalHits / perPage);
 
